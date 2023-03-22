@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# CLEARS THE SCREEN BEFORE STARING - UNCOMMENT THIS IF YOU DONT LIKE
+#! CLEARS THE SCREEN BEFORE STARING - UNCOMMENT THIS IF YOU DONT LIKE
 clear
 
 
-################# STYLING AND DECLARATIONS #################
+#################! STYLING AND DECLARATIONS #################
 
 gum style \
     --border rounded  \
@@ -31,9 +31,9 @@ text_color3() {
 
 
 
-################# SEARCHING FOR FILES TO COMMIT #################
+#################! SEARCHING FOR FILES TO COMMIT #################
 
-temp=$(git status | grep -oe "\w*.md\b" -e "\w*.cpp\b")
+temp=$(git status | ls -t)
 
 gum style --faint " press A to select all or space to select one or more then press enter"
 
@@ -45,7 +45,7 @@ then
 fi
 
 
-################# ADDING THE FILES TO BE COMMITED #################
+#################! ADDING THE FILES TO BE COMMITED #################
 
 
 files_to_commit=$(gum choose --no-limit $temp)
@@ -70,7 +70,7 @@ fi
 echo ""
 
 
-################# UPDATE MESSAGE #################
+#################! UPDATE MESSAGE #################
 
 # Pre-populate the input with the type(scope): so that the user may change it
 DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to finish)")
