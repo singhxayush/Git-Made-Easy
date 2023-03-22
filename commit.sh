@@ -11,8 +11,8 @@ gum style \
     --border-foreground="#66b3ff" \
     --bold \
     --width=3 \
-    --padding="0 3" \
-    "Commit Your Changes"
+    --padding="0 4" \
+    "Commit Your Changes 🚀"
 
 text_color1() {
     text=$1
