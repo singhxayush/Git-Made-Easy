@@ -1,5 +1,5 @@
 # Git-Made-Easy
-- Still Under under development
+- Still under development
 - A terminal based glamorous script that simplifies Git!
 - Currently built to read on only .cpp and .md files mainly for competitive programmers
 - Dependencies : gum (https://github.com/charmbracelet/gum) and Bash
