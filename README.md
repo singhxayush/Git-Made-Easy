@@ -6,20 +6,12 @@
 >Dependencies : [gum](https://github.com/charmbracelet/gum "Github: charmbracelet/gum")
 
 
-![GitMadeEasy](https://user-images.githubusercontent.com/90480489/227231234-93e1e664-21fd-4850-8a6d-1c717099cf13.gif)
-
-
+>![ezgif-1-973193791c](https://user-images.githubusercontent.com/90480489/227232819-713b248c-678c-4ea7-bb83-8056bc55ecd1.gif)
 
 >![Screenshot from 2023-03-23 05-20-44](https://user-images.githubusercontent.com/90480489/227066607-2f969355-1e74-4c4a-bd56-b1b9bc51a5b0.png)
-
 ![Screenshot from 2023-03-23 05-21-04](https://user-images.githubusercontent.com/90480489/227066622-983e65d9-19d6-4871-94e7-d666861c1cdb.png)
-
 ![Screenshot from 2023-03-23 05-21-21](https://user-images.githubusercontent.com/90480489/227066631-f1f3e069-1aa5-4c7f-91dd-62e30a4ec70d.png)
-
 ![Screenshot from 2023-03-23 05-21-50](https://user-images.githubusercontent.com/90480489/227066638-359f4290-e48e-49e6-80e6-7ce65173bdc0.png)
-
 ![Screenshot from 2023-03-23 05-22-00](https://user-images.githubusercontent.com/90480489/227066647-a8b005b3-6511-4cf4-8528-e114c178caa3.png)
-
 ![Screenshot from 2023-03-23 05-22-09](https://user-images.githubusercontent.com/90480489/227066654-6e2b381c-05a3-453c-8423-c534f85f0351.png)
-
 ![Screenshot from 2023-03-23 05-23-53](https://user-images.githubusercontent.com/90480489/227066662-7a20df11-b87e-4dee-8df7-b3e81621f870.png)
