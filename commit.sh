@@ -77,4 +77,5 @@ DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to f
 
 
 ################# COMMIT & PUSH #################
+# gum spin --title "Chewing some $(gum style --foreground "#04B575" "$GUM") bubble gum..." -- sleep 5
 gum confirm "Commit changes & Push?" && git commit -m "$DESCRIPTION" && git push
