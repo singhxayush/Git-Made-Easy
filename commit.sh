@@ -67,7 +67,6 @@ echo ""
 
 
 #################! UPDATE MESSAGE #################
-# Pre-populate the input with the type(scope): so that the user may change it
 DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to finish)")
 
 
