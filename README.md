@@ -6,7 +6,10 @@
 >Dependencies : [gum](https://github.com/charmbracelet/gum "Github: charmbracelet/gum")
 
 
-![ezgif-3-f8fe7efa73](https://user-images.githubusercontent.com/90480489/226985361-f4167fd7-49d2-4a5c-8a51-88946c4f8137.gif)
+
+https://user-images.githubusercontent.com/90480489/227227198-6aaf7d68-bc06-40be-addc-07a2ec9e935d.mp4
+
+
 
 ![Screenshot from 2023-03-23 05-20-44](https://user-images.githubusercontent.com/90480489/227066607-2f969355-1e74-4c4a-bd56-b1b9bc51a5b0.png)
 
