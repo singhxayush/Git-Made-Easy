@@ -48,7 +48,7 @@ fi
 #################! ADDING THE FILES TO BE COMMITED #################
 
 
-files_to_commit=$(gum choose --cursor-prefix "[ ] " --selected-prefix "[✓] " --no-limit $temp)
+files_to_commit=$(gum choose --cursor="▶ " --cursor.foreground="988AFF" --selected.foreground="#FFF829" --cursor-prefix="❰ ❱ " --selected-prefix="❰✘❱ " --no-limit $temp)
 
 if [ -z "$files_to_commit" ]
 then
@@ -77,6 +77,4 @@ DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to f
 
 
 ################# COMMIT & PUSH #################
-gum confirm "Commit changes & Push?" && git commit -m "$DESCRIPTION"
-gum spin --title "Chewing some $(gum style --foreground "#04B575" "$GUM") bubble gum..."
-git push
+gum confirm "Commit changes & Push?" && (git commit -m "$DESCRIPTION" && git push)

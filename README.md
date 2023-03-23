@@ -1,6 +1,6 @@
 # Git-Made-Easy
 >A terminal based glamorous shell script that simplifies Git!
-
+ 
 >Currently built to manage .cpp and .md files mainly(but customizable) for competitive programmers 
 
 >Dependencies : [gum](https://github.com/charmbracelet/gum "Github: charmbracelet/gum")
