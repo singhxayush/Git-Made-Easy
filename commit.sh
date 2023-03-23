@@ -60,7 +60,6 @@ else
         counter=$(($counter+1))
         git add $line
     done
-    git add $files_to_commit
     echo "has been $(text_color2 "added") & ready to $(text_color2 "Commit")"
 fi
 echo ""
@@ -73,6 +72,6 @@ DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to f
 
 
 #################! COMMIT & PUSH #################
-gum confirm "Commit changes & Push?" && (git commit -m "$DESCRIPTION" && git push && gum --spinn)
+gum confirm "Commit changes & Push?" && (git commit -m "$DESCRIPTION" && git push)
 
 
