@@ -66,7 +66,7 @@ echo ""
 
 
 
-#################! UPDATE MESSAGE ################# 
+#################! UPDATE MESSAGE #################
 DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to finish)")
 
 
