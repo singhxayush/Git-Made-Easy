@@ -4,8 +4,8 @@
 clear
 
 
-#################! STYLING AND DECLARATIONS #################
 
+#################! STYLING AND DECLARATIONS #################
 gum style \
     --border rounded  \
     --border-foreground="#66b3ff" \
@@ -32,8 +32,7 @@ text_color3() {
 
 
 #################! SEARCHING FOR FILES TO COMMIT #################
-
-temp=$(git status | ls -t)
+temp=$(git status | (ls -t))
 
 gum style --faint " press A to select all or space to select one or more then press enter"
 
@@ -45,9 +44,8 @@ then
 fi
 
 
+
 #################! ADDING THE FILES TO BE COMMITED #################
-
-
 files_to_commit=$(gum choose --cursor="▶ " --cursor.foreground="988AFF" --selected.foreground="#FFF829" --cursor-prefix="❰ ❱ " --selected-prefix="❰✘❱ " --no-limit $temp)
 
 if [ -z "$files_to_commit" ]
@@ -65,16 +63,14 @@ else
     git add $files_to_commit
     echo "has been $(text_color2 "added") & ready to $(text_color2 "Commit")"
 fi
-
-
 echo ""
 
 
-#################! UPDATE MESSAGE #################
 
+#################! UPDATE MESSAGE #################
 # Pre-populate the input with the type(scope): so that the user may change it
 DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to finish)")
 
 
 ################# COMMIT & PUSH #################
-gum confirm "Commit changes & Push?" && (git commit -m "$DESCRIPTION" && git push)
+gum confirm "Commit changes & Push?" && (git commit -m "$DESCRIPTION" && git push && gum --spinn)
