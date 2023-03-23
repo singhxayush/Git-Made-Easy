@@ -72,7 +72,7 @@ echo ""
 DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to finish)")
 
 
-################# COMMIT & PUSH #################
+#################! COMMIT & PUSH #################
 gum confirm "Commit changes & Push?" && (git commit -m "$DESCRIPTION" && git push && gum --spinn)
 
 
