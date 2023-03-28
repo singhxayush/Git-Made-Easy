@@ -38,12 +38,6 @@ text_color3() {
     gum style --foreground "#33cc33" "$text"
 }
 
-# light yellow
-text_color4() {
-    text=$1
-    gum style --foreground "#FFF829" "$text"
-}
-
 
 
 #################! SEARCHING FOR FILES UNSTAGED FILES TO STAGE(ADD) #################
@@ -137,11 +131,5 @@ DESCRIPTION=$(gum write --placeholder "Enter update message... (CTRL+D to finish
 gum confirm "Push?" && ((echo $tracked_files | git commit -m "$DESCRIPTION") && git push)
 
 
-reset_screen
-gum style \
-    --border rounded  \
-    --border-foreground="#66b3ff" \
-    --bold \
-    --width=3 \
-    --padding="0 4" \
-    "DONE!"
+# reset_screen
+gum style --border rounded --border-foreground="#33cc33" --bold --width=1 --padding="0 1" "DONE!";
