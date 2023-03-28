@@ -14,6 +14,7 @@ print_banner() {
     "Commit Your Changes 🚀"
 }
 print_banner
+
 reset_screen() {
     clear
     print_banner
@@ -37,6 +38,12 @@ text_color3() {
     gum style --foreground "#33cc33" "$text"
 }
 
+# light yellow
+text_color4() {
+    text=$1
+    gum style --foreground "#FFF829" "$text"
+}
+
 
 
 #################! SEARCHING FOR FILES UNSTAGED FILES TO STAGE(ADD) #################
@@ -46,7 +53,7 @@ tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
 
 
 
-#################! ADDING THE FILES TO BE COMMITED #################
+#################! STAGING FILES #################
 if [ -z "$unstaged_and_untracked" ]
     then
         if [ -z "$tracked_files" ]
@@ -59,7 +66,6 @@ if [ -z "$unstaged_and_untracked" ]
         echo $(text_color1 " Select files to stage!")
         gum style --faint " press A to select all or space to select individually then press enter"
         gum style --faint " M -> Modified U -> Untracked"
-        echo ""
 
         files_to_stage=$(
             gum choose \
@@ -70,13 +76,12 @@ if [ -z "$unstaged_and_untracked" ]
             --selected-prefix="❰✘❱ " \
             --no-limit $unstaged_and_untracked
         )
+
         files_to_stage=$(echo "$files_to_stage" | cut -c4-)
-        # echo "$files_to_stage"
+
         if [ -z "$files_to_stage" ]
             then
                 reset_screen
-                echo $(text_color3 " Nothing selected")
-                exit
             else
                 reset_screen
                 counter=1
@@ -86,96 +91,57 @@ if [ -z "$unstaged_and_untracked" ]
                     counter=$(($counter+1))
                     git add $line
                 done
-                echo " has been $(text_color2 "added") & ready to $(text_color2 "Commit")"
+                echo " has been $(text_color2 "Staged") & ready to $(text_color2 "Commit")"
                 echo ""
         fi
 fi
 
 
 
-
-
-echo $(text_color1 " Select staged files to commit!")
-gum style --faint " press A to select all or space to select individually then press enter"
+#################! SELECT STAGED TO COMMIT #################
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
-echo $tracked_files
+if [ -z $tracked_files ]
+    then
+    echo $(text_color3 " Noting staged")
+    exit
+fi
 
-echo $tracked_files | git commit -m "x"
-# files_to_stage=$(echo "$files_to_commit" | cut -c4-)
-exit
+echo $(text_color1 " Select staged files to commit locally!")
+gum style --faint " press A to select all or space to select individually then press enter"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+files_to_commit=$(
+    gum choose \
+    --cursor="▶ " \
+    --cursor.foreground="988AFF" \
+    --selected.foreground="#FFF829" \
+    --cursor-prefix="❰ ❱ " \
+    --selected-prefix="❰✘❱ " \
+    --no-limit $tracked_files
+)
+echo $files_to_commit
 if [ -z "$files_to_commit" ]
-then
+    then
+    reset_screen
     echo $(text_color3 " Nothing selected")
     exit
-else
 fi
+
+#################! UPDATE MESSAGE ################# 
+DESCRIPTION=$(gum write --placeholder "$(text_color3 "Enter your  message... (CTRL+D to finish)")")
+
+exit
+echo $tracked_files | git commit -m "$DESCRIPTION"
+
+
 
 tracked_files=$(git status --short | grep '^M ')
 
 
 
-#################! UPDATE MESSAGE ################# 
-DESCRIPTION=$(gum write --placeholder "Enter your commit message... (CTRL+D to finish)")
 
 
 
-#################! COMMIT & PUSH #################
-gum confirm "Commit changes & Push?" && (git commit -m "$DESCRIPTION" && git push)
+#################! PUSH LOCAL COMMITS #################
+gum confirm "Push?" && (git commit -m "$DESCRIPTION" && git push)
 
 
