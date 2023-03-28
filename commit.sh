@@ -126,22 +126,14 @@ if [ -z "$files_to_commit" ]
     exit
 fi
 
+
+
 #################! UPDATE MESSAGE ################# 
-DESCRIPTION=$(gum write --placeholder "$(text_color3 "Enter your  message... (CTRL+D to finish)")")
-
-exit
-echo $tracked_files | git commit -m "$DESCRIPTION"
-
-
-
-tracked_files=$(git status --short | grep '^M ')
-
-
-
+DESCRIPTION=$(gum write --placeholder "Enter update message... (CTRL+D to finish)")
 
 
 
 #################! PUSH LOCAL COMMITS #################
-gum confirm "Push?" && (git commit -m "$DESCRIPTION" && git push)
+gum confirm "Push?" && ((echo $tracked_files | git commit -m "$DESCRIPTION") && git push)
 
 
