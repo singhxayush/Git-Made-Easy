@@ -99,6 +99,8 @@ echo $(text_color1 " Select staged files to commit!")
 gum style --faint " press A to select all or space to select individually then press enter"
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
 echo $tracked_files
+
+echo $tracked_files | git commit -m "x"
 # files_to_stage=$(echo "$files_to_commit" | cut -c4-)
 exit
 
@@ -162,16 +164,7 @@ then
     echo $(text_color3 " Nothing selected")
     exit
 else
-    counter=1
-    echo $files_to_commit | tr " " "\n" | while read line
-    do
-        echo "  file$counter : $(text_color3 $line)"
-        counter=$(($counter+1))
-        git add $line
-    done
-    echo "has been $(text_color2 "added") & ready to $(text_color2 "Commit")"
 fi
-echo ""
 
 tracked_files=$(git status --short | grep '^M ')
 
