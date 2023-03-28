@@ -137,3 +137,11 @@ DESCRIPTION=$(gum write --placeholder "Enter update message... (CTRL+D to finish
 gum confirm "Push?" && ((echo $tracked_files | git commit -m "$DESCRIPTION") && git push)
 
 
+reset_screen
+gum style \
+    --border rounded  \
+    --border-foreground="#66b3ff" \
+    --bold \
+    --width=3 \
+    --padding="0 4" \
+    "DONE!"
