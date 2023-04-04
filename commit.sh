@@ -15,6 +15,7 @@ print_banner() {
     --padding="0 4" \
     "Commit Your Changes 🚀"
 }
+
 print_banner
 
 reset_screen() {
