@@ -1,0 +1,7 @@
+M : README.md
+M : commit.sh
+U : .vscode/
+U : file_list
+U : file_list.txt
+U : op.txt
+U : temp.sh
