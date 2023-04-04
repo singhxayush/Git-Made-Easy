@@ -134,4 +134,4 @@ gum confirm "Push?" && ((echo $tracked_files | git commit -m "$DESCRIPTION") && 
 
 
 clear
-gum style --border rounded --border-foreground="#b3f759" --bold --width=1 --padding="0 3" " "$DESCRIPTION" DONE!";
+gum style --border rounded --border-foreground="#b3f759" --bold --width=1 --padding="0 3" "DONE!";
