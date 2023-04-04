@@ -1,12 +1,9 @@
 #!/bin/bash
 
-#! CLEARS THE SCREEN BEFORE STARING - UNCOMMENT THIS IF YOU DON'T LIKE
-clear
-
-
 
 #################! STYLING AND DECLARATIONS #################
 print_banner() {
+    clear
     gum style \
     --border rounded  \
     --border-foreground="#66b3ff" \
@@ -17,11 +14,6 @@ print_banner() {
 }
 
 print_banner
-
-reset_screen() {
-    clear
-    print_banner
-}
 
 # bold pink
 text_color1() {
@@ -43,9 +35,9 @@ text_color3() {
 
 
 
-#################! SEARCHING FOR FILES UNSTAGED FILES TO STAGE(ADD) #################
-unstaged_and_untracked=$(git status --short | grep -v '?? \.' | grep '^ M\|^?? ')
-unstaged_and_untracked=$(echo "$unstaged_and_untracked" | sed 's/?? /U->/' | sed 's/ M /M->/')
+#################! SEARCHING FOR FILES UNSTAGED & UNTRACKED FILES TO STAGE(ADD) #################
+unstaged_and_untracked=$(git status --short | grep -v '?? \.' | grep '^ M\|^?? \|^MM ')
+unstaged_and_untracked=$(echo "$unstaged_and_untracked" | sed 's/?? /U->/' | sed 's/ M /M->/' | sed 's/MM /M->/')
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
 
 
@@ -63,7 +55,7 @@ if [ -z "$unstaged_and_untracked" ]
         echo $(text_color1 " Select files to stage!")
         gum style --faint " press A to select all or space to select individually then press enter"
         gum style --faint " M -> Modified | U -> Untracked"
-        gum style --faint " ---------------------------------------"
+        gum style --faint " -------------------------------------------------"
 
         files_to_stage=$(
             gum choose \
@@ -79,9 +71,9 @@ if [ -z "$unstaged_and_untracked" ]
 
         if [ -z "$files_to_stage" ]
             then
-                reset_screen
+                print_banner
             else
-                reset_screen
+                print_banner
                 counter=1
                 echo $files_to_stage | tr " " "\n" | while read line
                 do
@@ -106,6 +98,7 @@ fi
 
 echo $(text_color1 " Select staged files to commit locally!")
 gum style --faint " press A to select all or space to select individually then press enter"
+gum style --faint " -------------------------------------------------"
 
 files_to_commit=$(
     gum choose \
@@ -119,7 +112,7 @@ files_to_commit=$(
 echo $files_to_commit
 if [ -z "$files_to_commit" ]
     then
-    reset_screen
+    print_banner
     echo $(text_color3 " Nothing selected")
     exit
 fi
@@ -127,7 +120,10 @@ fi
 
 
 #################! UPDATE MESSAGE ################# 
-DESCRIPTION=$(gum write --placeholder "Enter update message... (CTRL+D to finish)")
+print_banner
+echo $(text_color1 " Write an Update message")
+gum style --faint " -------------------------------------------------"
+DESCRIPTION=$(gum write --placeholder "Enter update message here... (CTRL+D to finish)")
 
 
 
