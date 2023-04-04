@@ -61,7 +61,8 @@ if [ -z "$unstaged_and_untracked" ]
     else
         echo $(text_color1 " Select files to stage!")
         gum style --faint " press A to select all or space to select individually then press enter"
-        gum style --faint " M -> Modified U -> Untracked"
+        gum style --faint " M -> Modified | U -> Untracked"
+        gum style --faint " ---------------------------------------"
 
         files_to_stage=$(
             gum choose \
@@ -98,7 +99,7 @@ fi
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
 if [ -z $tracked_files ]
     then
-    echo $(text_color3 " Noting staged")
+    echo $(text_color3 " Nothing staged")
     exit
 fi
 
