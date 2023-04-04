@@ -3,6 +3,8 @@
 #! CLEARS THE SCREEN BEFORE STARING - UNCOMMENT THIS IF YOU DON'T LIKE
 clear
 
+
+
 #################! STYLING AND DECLARATIONS #################
 print_banner() {
     gum style \
@@ -92,7 +94,7 @@ fi
 
 
 
-#################! SELECT STAGED TO COMMIT #################
+#################! SELECT STAGED FILES TO COMMIT #################
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
 if [ -z $tracked_files ]
     then
