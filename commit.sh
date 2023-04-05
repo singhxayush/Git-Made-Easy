@@ -112,7 +112,7 @@ files_to_commit=$(
 echo $files_to_commit
 if [ -z "$files_to_commit" ]
     then
-    print_banner
+    # print_banner
     echo $(text_color3 " Nothing selected")
     exit
 fi

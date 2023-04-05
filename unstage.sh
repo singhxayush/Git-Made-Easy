@@ -1,12 +1,10 @@
 #!/bin/bash
 
-#! CLEARS THE SCREEN BEFORE STARING - UNCOMMENT THIS IF YOU DON'T LIKE
-clear
-
 
 
 #################! STYLING AND DECLARATIONS #################
 print_banner() {
+    clear
     gum style \
     --border rounded  \
     --border-foreground="#66b3ff" \
@@ -16,4 +14,43 @@ print_banner() {
     "Unstage Your Changes 💬"
 }
 print_banner
+
+# bold pink
+text_color1() {
+    text=$1
+    gum style --bold --foreground "#ff3399" "$text"
+}
+
+# bold red
+text_color2() {
+    text=$1
+    gum style --bold --foreground "#ff0000" "$text"
+}
+
+# light green
+text_color3() {
+    text=$1
+    gum style --foreground "#33cc33" "$text"
+}
+
+#################! SELECT STAGED FILES TO UNSTAGE #################
+tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
+if [ -z $tracked_files ]
+    then
+    echo $(text_color3 " Nothing staged")
+    exit
+fi
+echo $(text_color1 " Select files to unstage")
+gum style --faint " press A to select all or space to select individually then press enter"
+gum style --faint " -------------------------------------------------"
+
+files_to_unstage=$(
+    gum choose \
+    --cursor="▶ " \
+    --cursor.foreground="988AFF" \
+    --selected.foreground="#FFF829" \
+    --cursor-prefix="❰ ❱ " \
+    --selected-prefix="❰✘❱ " \
+    --no-limit $tracked_files
+)
 
