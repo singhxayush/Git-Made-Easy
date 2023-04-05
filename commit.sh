@@ -119,17 +119,17 @@ fi
 
 
 
-#################! UPDATE MESSAGE AND COMMIT LOCALLY ################# 
+#################! UPDATE MESSAGE ################# 
 print_banner
 echo $(text_color1 " Write an Update message")
 gum style --faint " -------------------------------------------------"
 DESCRIPTION=$(gum write --placeholder "Enter update message here... (CTRL+D to finish)")
-echo $tracked_files | git commit -m "$DESCRIPTION"
+
 
 
 #################! PUSH LOCAL COMMITS #################
 print_banner
-gum confirm $(text_color3 "Push?") && (git push)
+gum confirm $(text_color2 "Push?") && ((echo $tracked_files | git commit -m "$DESCRIPTION") && git push)
 
 
 
