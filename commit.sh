@@ -109,10 +109,10 @@ files_to_commit=$(
     --selected-prefix="❰✘❱ " \
     --no-limit $tracked_files
 )
-echo $files_to_commit
+
 if [ -z "$files_to_commit" ]
     then
-    # print_banner
+    print_banner
     echo $(text_color3 " Nothing selected")
     exit
 fi
@@ -124,12 +124,12 @@ print_banner
 echo $(text_color1 " Write an Update message")
 gum style --faint " -------------------------------------------------"
 DESCRIPTION=$(gum write --placeholder "Enter update message here... (CTRL+D to finish)")
-
+echo $tracked_files | git commit -m "$DESCRIPTION"
 
 
 #################! PUSH LOCAL COMMITS #################
 print_banner
-gum confirm "Push?" && ((echo $tracked_files | git commit -m "$DESCRIPTION") && git push)
+gum confirm $(text_color1 "Push Local Commits?") && git push
 
 
 
