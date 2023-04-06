@@ -58,7 +58,7 @@ files_to_unstage=$(
     --no-limit $tracked_files
 )
 
-if [ -z "$files_to_commit" ]
+if [ -z "$files_to_unstage" ]
     then
     print_banner
     echo $(text_color3 " Nothing selected")

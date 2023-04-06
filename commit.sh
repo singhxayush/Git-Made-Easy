@@ -135,4 +135,3 @@ gum confirm $(text_color2 "Push?") && ((echo $tracked_files | git commit -m "$DE
 
 clear
 gum style --border rounded --border-foreground="#b3f759" --bold --width=1 --padding="0 3" "DONE!";
-
