@@ -6,8 +6,10 @@
 - Dependencies : [gum](https://github.com/charmbracelet/gum "Github: charmbracelet/gum")
 
 > COMMIT
-> 
-> ![ezgif-4-7e47dbf5dc](https://user-images.githubusercontent.com/90480489/227266775-740836e5-6e64-4019-a975-36e231ef67ba.gif)
+>
+> ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/90480489/230633780-ed683bbd-611c-48d5-beae-367828562da1.gif)
+
+
 
 > UNSTAGE
 >
