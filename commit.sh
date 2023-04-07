@@ -90,7 +90,7 @@ fi
 
 #################! SELECT STAGED FILES TO COMMIT #################
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
-if [ -z $tracked_files ]
+if [ -z "$tracked_files" ]
     then
     echo $(text_color3 " Nothing staged")
     exit
@@ -134,4 +134,4 @@ gum confirm $(text_color2 "Push?") && ((echo $tracked_files | git commit -m "$DE
 
 
 clear
-gum style --border rounded --border-foreground="#b3f759" --bold --width=1 --padding="0 3" "DONE!";
+gum style --border rounded --border-foreground="#b3f759" --bold --width=1 --padding="0 3" "DONE!"
