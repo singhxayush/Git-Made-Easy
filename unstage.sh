@@ -13,7 +13,6 @@ print_banner() {
     --padding="0 4" \
     "Unstage Your Changes 💬"
 }
-print_banner
 
 # bold pink
 text_color1() {
@@ -34,6 +33,8 @@ text_color3() {
 }
 
 
+
+print_banner
 
 #################! SELECT STAGED FILES TO UNSTAGE #################
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
