@@ -88,6 +88,7 @@ fi
 
 
 
+
 #################! SELECT STAGED FILES TO COMMIT #################
 tracked_files=$(git status --short | grep '^M \|^MM \|^A ' | cut -c4-)
 if [ -z "$tracked_files" ]
