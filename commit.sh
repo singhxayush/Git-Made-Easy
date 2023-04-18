@@ -112,6 +112,7 @@ files_to_commit=$(
 )
 
 
+
 if [ -z "$files_to_commit" ]
     then
     print_banner
