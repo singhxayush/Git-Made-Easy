@@ -111,6 +111,7 @@ files_to_commit=$(
     --no-limit $tracked_files
 )
 
+
 if [ -z "$files_to_commit" ]
     then
     print_banner
