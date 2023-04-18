@@ -97,6 +97,7 @@ if [ -z "$tracked_files" ]
     exit
 fi
 
+
 echo $(text_color1 " Select staged files to commit locally!")
 gum style --faint " press A to select all or space to select individually then press enter"
 gum style --faint " -------------------------------------------------"
