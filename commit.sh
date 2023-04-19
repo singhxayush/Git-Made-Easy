@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 #################! STYLING AND DECLARATIONS #################
 print_banner() {
     clear
