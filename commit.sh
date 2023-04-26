@@ -4,12 +4,16 @@
 print_banner() {
     clear
     gum style \
-    --border rounded  \
+    --border double  \
     --border-foreground="#66b3ff" \
     --bold \
     --width=3 \
-    --padding="0 4" \
-    "Commit Your Changes 🚀"
+    --padding="0 5" \
+ "
+ Stage
+ And     🚀
+ Commit
+ "
 }
 
 print_banner
@@ -51,17 +55,15 @@ if [ -z "$unstaged_and_untracked" ]
         fi
 
     else
-        echo $(text_color1 " Select files to stage!")
+        echo $(text_color1 "Select files to stage!")
         gum style --faint " press A to select all or space to select individually then press enter"
         gum style --faint " M -> Modified | U -> Untracked"
         gum style --faint " -------------------------------------------------"
 
         files_to_stage=$(
             gum choose \
-            --cursor="▶ " \
-            --cursor.foreground="988AFF" \
+            --cursor="🞄 " \
             --selected.foreground="#FFF829" \
-            --cursor-prefix="❰ ❱ " \
             --selected-prefix="❰✘❱ " \
             --no-limit $unstaged_and_untracked
         )
@@ -134,5 +136,5 @@ gum confirm $(text_color2 "Push?") && ((echo $tracked_files | git commit -m "$DE
 
 
 
-clear
 gum style --border rounded --border-foreground="#b3f759" --bold --width=1 --padding="0 3" "DONE!"
+clear
