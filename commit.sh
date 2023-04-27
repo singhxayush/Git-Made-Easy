@@ -62,7 +62,7 @@ if [ -z "$unstaged_and_untracked" ]
 
         files_to_stage=$(
             gum choose \
-            --cursor="🞄 " \
+            --cursor="❯ " \
             --selected.foreground="#FFF829" \
             --selected-prefix="❰✘❱ " \
             --no-limit $unstaged_and_untracked
@@ -104,7 +104,7 @@ gum style --faint " -------------------------------------------------"
 
 files_to_commit=$(
     gum choose \
-    --cursor="▶ " \
+    --cursor="❯ " \
     --cursor.foreground="988AFF" \
     --selected.foreground="#FFF829" \
     --cursor-prefix="❰᩿ ❱ " \
