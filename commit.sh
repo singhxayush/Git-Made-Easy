@@ -55,16 +55,16 @@ if [ -z "$unstaged_and_untracked" ]
         fi
 
     else
-        echo $(text_color1 "Select files to stage!")
+        echo $(text_color1 " Select files to stage!")
         gum style --faint " press A to select all or space to select individually then press enter"
         gum style --faint " M -> Modified | U -> Untracked"
         gum style --faint " -------------------------------------------------"
 
         files_to_stage=$(
             gum choose \
-            --cursor="❯ " \
-            --selected.foreground="#FFF829" \
-            --selected-prefix="❰✘❱ " \
+            --cursor="❯  " \
+            --selected.foreground="#33cc33" \
+            --selected-prefix="✖ " \
             --no-limit $unstaged_and_untracked
         )
 
@@ -104,11 +104,9 @@ gum style --faint " -------------------------------------------------"
 
 files_to_commit=$(
     gum choose \
-    --cursor="❯ " \
-    --cursor.foreground="988AFF" \
-    --selected.foreground="#FFF829" \
-    --cursor-prefix="❰᩿ ❱ " \
-    --selected-prefix="❰✘❱ " \
+    --cursor="❯  " \
+    --selected.foreground="#33cc33" \
+    --selected-prefix="✖ " \
     --no-limit $tracked_files
 )
 
