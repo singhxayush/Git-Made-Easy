@@ -20,6 +20,7 @@ print_banner() {
 
 print_banner
 
+
 # bold pink
 text_color1() {
     text=$1
